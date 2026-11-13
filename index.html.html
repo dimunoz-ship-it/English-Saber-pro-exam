@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saber Pro Style English Exam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --peach:#FFF6EE;
+    --pink:#FF5D8F;
+    --pink-deep:#D63C6C;
+    --violet:#7C5CFC;
+    --violet-deep:#5637C9;
+    --mint:#2FC9A0;
+    --mint-deep:#1B9877;
+    --yellow:#FFC93C;
+    --yellow-deep:#C98E0A;
+    --ink:#241F3D;
+    --paper:#FFFBF4;
+    --ok:#1B9877;
+    --bad:#D63C6C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:100%;min-height:100%;}
+  body{
+    font-family:'Poppins',sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    background:linear-gradient(180deg,
+      #5A3FD6 0%,
+      #9B5FE0 12%,
+      #FF5D8F 26%,
+      #FF9472 40%,
+      #FFC93C 54%,
+      #6FD9B0 68%,
+      #4FB8D9 82%,
+      #5A3FD6 100%);
+    background-attachment:fixed;
+    padding:3rem 1.2rem 5rem;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+  .card{
+    background:var(--paper);
+    border:1px solid rgba(36,31,61,0.08);
+    border-radius:24px;
+    padding:2.4rem 2.2rem;
+    margin-bottom:1.6rem;
+    box-shadow:0 14px 34px rgba(36,31,61,0.18);
+  }
+  .eyebrow{
+    display:inline-block;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:0.8rem;
+    background:var(--ink);color:#fff;padding:0.3rem 0.95rem;border-radius:30px;margin-bottom:1rem;
+  }
+  h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:2.2rem;line-height:1.1;color:var(--violet-deep);margin-bottom:0.8rem;}
+  h2{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.5rem;color:var(--pink-deep);margin-bottom:0.9rem;}
+  h3{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:1.1rem;color:var(--ink);margin-bottom:0.6rem;}
+  p{font-size:1rem;line-height:1.65;margin-bottom:0.8rem;}
+  .muted{color:#6b6880;font-size:0.9rem;}
+  label.field-label{display:block;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:0.4rem;}
+  input[type=text]{
+    width:100%;padding:0.75rem 1rem;border-radius:12px;border:2px solid rgba(36,31,61,0.15);
+    font-family:'Poppins',sans-serif;font-size:1rem;margin-bottom:1.2rem;
+  }
+  input[type=text]:focus{outline:none;border-color:var(--violet);}
+  button{
+    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
+    background:var(--violet-deep);color:#fff;border:none;border-radius:14px;
+    padding:0.85rem 1.8rem;cursor:pointer;box-shadow:0 6px 0 var(--ink);
+    transition:transform 0.05s ease;
+  }
+  button:active{transform:translateY(4px);box-shadow:0 2px 0 var(--ink);}
+  button.secondary{background:var(--mint-deep);box-shadow:0 6px 0 #0d5c48;}
+  .timer{
+    position:sticky;top:0.8rem;z-index:50;
+    display:inline-flex;align-items:center;gap:0.5rem;
+    background:var(--ink);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:700;
+    padding:0.5rem 1.1rem;border-radius:30px;margin-bottom:1rem;float:right;
+  }
+  .timer.warn{background:var(--bad);}
+  .part-tag{
+    font-family:'Baloo 2',sans-serif;font-weight:700;color:#fff;background:var(--pink-deep);
+    display:inline-block;padding:0.25rem 0.8rem;border-radius:20px;font-size:0.8rem;margin-bottom:0.6rem;
+  }
+  .q{
+    border-top:1px solid rgba(36,31,61,0.1);
+    padding:1.3rem 0;
+  }
+  .q:first-of-type{border-top:none;}
+  .q-text{font-weight:600;margin-bottom:0.7rem;}
+  .opt{
+    display:flex;align-items:flex-start;gap:0.6rem;
+    background:#fff;border:2px solid rgba(36,31,61,0.1);border-radius:12px;
+    padding:0.6rem 0.9rem;margin-bottom:0.55rem;cursor:pointer;font-size:0.95rem;
+  }
+  .opt:hover{border-color:var(--violet);}
+  .opt input{margin-top:0.2rem;}
+  .opt.correct{border-color:var(--ok);background:#EAF8F2;}
+  .opt.incorrect{border-color:var(--bad);background:#FCEFF3;}
+  .cloze-text{font-size:1.02rem;line-height:2.4;}
+  .cloze-text select{
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:0.95rem;
+    border:2px solid var(--violet);border-radius:8px;padding:0.2rem 0.5rem;
+    background:#fff;color:var(--violet-deep);margin:0 0.1rem;
+  }
+  .cloze-text select.correct{border-color:var(--ok);color:var(--ok);}
+  .cloze-text select.incorrect{border-color:var(--bad);color:var(--bad);}
+  .result-box{
+    text-align:center;padding:2rem 1rem;border-radius:18px;background:var(--violet-deep);color:#fff;
+  }
+  .result-box .score{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:3rem;}
+  .result-box .grade{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:2.2rem;color:var(--yellow);}
+  .hidden{display:none !important;}
+  .error-msg{color:var(--bad);font-size:0.9rem;margin:-0.6rem 0 1rem;font-weight:600;}
+  ul.plain{margin-left:1.2rem;margin-bottom:0.8rem;}
+  ul.plain li{margin-bottom:0.3rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- START SCREEN -->
+  <div class="card" id="startScreen">
+    <span class="eyebrow">Saber Pro · English Exam</span>
+    <h1>English Exam &mdash; Units 7&ndash;12</h1>
+    <p>This exam has <strong>7 parts</strong> and <strong>45 questions</strong>. You have <strong>1 hour</strong> to finish. When you submit, you'll see your score and your grade right away.</p>
+    <ul class="plain muted">
+      <li>Part 1 &ndash; Lexical competence (5)</li>
+      <li>Part 2 &ndash; Pragmatic competence (5)</li>
+      <li>Part 3 &ndash; Communicative competence (5)</li>
+      <li>Part 4 &ndash; Grammatical competence &mdash; cloze text (8)</li>
+      <li>Part 5 &ndash; Reading comprehension: literal (7)</li>
+      <li>Part 6 &ndash; Reading comprehension: inferential (5)</li>
+      <li>Part 7 &ndash; Grammatical and lexical competence (10)</li>
+    </ul>
+    <label class="field-label" for="studentName">Your full name</label>
+    <input type="text" id="studentName" placeholder="Type your full name">
+    <div class="error-msg hidden" id="nameError">Please enter your name before starting.</div>
+    <button onclick="startExam()">Start exam &rarr;</button>
+  </div>
+
+  <!-- EXAM SCREEN -->
+  <div id="examScreen" class="hidden">
+    <div class="timer" id="timerBox">&#9201; 60:00</div>
+    <div style="clear:both;"></div>
+
+    <div class="card">
+      <span class="part-tag">Part 1</span>
+      <h2>Lexical competence</h2>
+      <p class="muted">Choose the word that best completes each sentence.</p>
+      <div id="part1"></div>
+    </div>
+
+    <div class="card">
+      <span class="part-tag">Part 2</span>
+      <h2>Pragmatic competence</h2>
+      <p class="muted">Choose the expression that fits the social situation.</p>
+      <div id="part2"></div>
+    </div>
+
+    <div class="card">
+      <span class="part-tag">Part 3</span>
+      <h2>Communicative competence</h2>
+      <p class="muted">Choose the best way to keep the conversation going.</p>
+      <div id="part3"></div>
+    </div>
+
+    <div class="card">
+      <span class="part-tag">Part 4</span>
+      <h2>Grammatical competence</h2>
+      <p class="muted">Complete the text. Choose the correct option for each blank.</p>
+      <p class="cloze-text" id="clozeText"></p>
+    </div>
+
+    <div class="card">
+      <span class="part-tag">Part 5</span>
+      <h2>Reading comprehension &mdash; literal</h2>
+      <p class="muted">Read the blog post and answer the questions with information from the text.</p>
+      <div style="background:#fff;border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;font-size:0.92rem;line-height:1.6;border:1px solid rgba(36,31,61,0.1);">
+        <strong>SHE SAID YES!!! &mdash; Martin's Blog</strong><br><br>
+        What a crazy week! I forgot Sophie's birthday. I got a new job. Oh, and I almost didn't ask Sophie to marry me!<br><br>
+        I bought a ring for Sophie on Saturday morning &mdash; I wanted to marry her that night. So I invited her over, cooked a special dinner, and made her favorite dessert. I felt nervous, but when she arrived, she said she had a cold and felt tired. Not the right mood for &ldquo;Marry me.&rdquo; She went straight home after dinner. She didn't even eat my chocolate cake!<br><br>
+        I had an important interview on Wednesday &mdash; I didn't get Sophie's cold, thank goodness &mdash; and I got the job! When I texted Sophie the good news, she texted back, &ldquo;Let's have dinner on Friday to celebrate!&rdquo;<br><br>
+        Perfect, right? Wrong. We went to our favorite restaurant. Before the server showed us to our table, Sophie saw some friends, and we all ate together. I didn't want to ask her in front of all our friends.<br><br>
+        After we left the restaurant, Sophie borrowed my jacket. (Oh, no! The ring!) She put her hands in the pockets and found the box!<br><br>
+        &ldquo;Oh, you remembered my birthday!&rdquo; she said. (Oh, no! Her birthday!) Then she opened the box. Thinking fast, I dropped to one knee. &ldquo;Happy birthday, Sophie! Will you marry me?&rdquo;
+      </div>
+      <div id="part5"></div>
+    </div>
+
+    <div class="card">
+      <span class="part-tag">Part 6</span>
+      <h2>Reading comprehension &mdash; inferential</h2>
+      <p class="muted">Based on the same blog post, answer using what you can infer, not only what is written directly.</p>
+      <div id="part6"></div>
+    </div>
+
+    <div class="card">
+      <span class="part-tag">Part 7</span>
+      <h2>Grammatical and lexical competence</h2>
+      <p class="muted">Choose the correct word or form to complete each sentence.</p>
+      <div id="part7"></div>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <button class="secondary" onclick="submitExam()">Submit exam</button>
+      <p class="muted" style="margin-top:0.8rem;">You can only submit once, so check your answers before you click.</p>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="card hidden" id="resultScreen">
+    <span class="eyebrow">Result</span>
+    <h1 id="resultName">Result</h1>
+    <div class="result-box">
+      <p style="margin-bottom:0.3rem;">Correct answers</p>
+      <div class="score" id="scoreOut">0 / 45</div>
+      <p style="margin:0.6rem 0 0.3rem;">Final grade</p>
+      <div class="grade" id="gradeOut">1.0</div>
+    </div>
+    <p class="muted" style="margin-top:1.2rem;">Scroll up to review your answers &mdash; correct options are now shown in green, and any wrong choice you made is shown in pink.</p>
+  </div>
+
+</div>
+
+<script>
+/* ---------- GRADE TABLE (exact, as given by the teacher) ---------- */
+const GRADE_TABLE = [1.0,1.1,1.2,1.3,1.4,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.0,3.1,3.2,3.3,3.4,3.5,3.6,3.7,3.8,3.8,3.9,4.0,4.1,4.2,4.3,4.4,4.5,4.6,4.6,4.7,4.8,4.9,5.0];
+
+/* ---------- QUESTION BANK ---------- */
+const PART1 = [
+ {t:"My sister doesn't eat meat, fish, or eggs. She's a _______.",o:["athlete","vegetarian","chef","server"],c:1},
+ {t:"It's very cold and white outside, and I can make a snowman. It's _______.",o:["raining","snowing","humid","windy"],c:1},
+ {t:"Before work, Emre has to wear a suit and a _______ around his neck.",o:["scarf","belt","tie","bracelet"],c:2},
+ {t:"Gazpacho is a cold Spanish _______ made from tomatoes.",o:["snack","soup","dessert","drink"],c:1},
+ {t:"My brother never shops online; he always goes to the store to _______ clothes before buying them.",o:["try","try on","wear","fit"],c:1}
+];
+
+const PART2 = [
+ {t:'A: "I just got the job I wanted!"  B: "_______!"',o:["Good luck","Congratulations","That's too bad","I'm sorry to hear that"],c:1},
+ {t:'A: "I have a big exam tomorrow morning."  B: "_______!"',o:["Congratulations","Good luck","That's terrible","You did?"],c:1},
+ {t:'A: "I failed my driving test yesterday."  B: "Oh, _______."',o:["that's great","congratulations","I'm sorry to hear that","good for you"],c:2},
+ {t:'A: "I had a really bad week. I was sick, and I lost my phone."  B: "_______"',o:["That's great!","Oh no, that's too bad.","Good luck!","Congratulations!"],c:1},
+ {t:'A: "So, I stayed home and cleaned the house all weekend."  B: "Oh, really? _______, what did you do?"',o:["Anyway","Actually","However","Also"],c:0}
+];
+
+const PART3 = [
+ {t:'A: "I\'m learning to cook Italian food these days."  B: "Really? _______"',o:["So what are you making?","That's too bad.","Good luck.","I'm sorry to hear that."],c:0},
+ {t:'A: "Um, let\'s see... it\'s $55.95." Which expression shows the speaker needs time to think?',o:["Let's see","Congratulations","Of course","Never mind"],c:0},
+ {t:'A: "Did you have a nice weekend?"  B: "Yes, I went hiking. _______?"',o:["How about you","Who cares","So what","Why not"],c:0},
+ {t:'What does "Uh-huh" usually mean in a conversation?',o:["No","Maybe","Yes / I'm listening","I don't know"],c:2},
+ {t:'A: "Can I have coffee ice cream with chocolate sprinkles?"  B: "What are sprinkles?" This question is an example of:',o:["asking for clarification about a new word","giving advice","complaining","apologizing"],c:0}
+];
+
+/* Part 4 cloze: 8 blanks inside one paragraph */
+const CLOZE_PARTS = [
+ "Last weekend, Laura ",
+ " to the beach with her friends. The weather ",
+ " perfect &mdash; it was sunny and warm. In the morning, they ",
+ " in the ocean and took a lot of photos. At noon, they ",
+ " lunch at a small restaurant near the beach. Laura doesn't eat much meat, so she ",
+ " a seafood salad. In the afternoon, two of her friends ",
+ " volleyball on the sand while Laura read her book. &ldquo;This is amazing,&rdquo; she said. &ldquo;I ",
+ " believe we are finally on vacation!&rdquo; They didn't want to go home, but they ",
+ " to leave before it got dark."
+];
+const PART4 = [
+ {o:["go","went","goes","going"],c:1},
+ {o:["is","was","were","be"],c:1},
+ {o:["swim","swam","swimmed","swimming"],c:1},
+ {o:["have","had","haves","having"],c:1},
+ {o:["order","orders","ordered","ordering"],c:2},
+ {o:["play","played","plays","are playing"],c:1},
+ {o:["don't","can't","won't","shouldn't"],c:1},
+ {o:["have","has","had","must"],c:2}
+];
+
+const PART5 = [
+ {t:"What did Martin buy on Saturday morning?",o:["A new phone","A ring","A birthday cake","A plane ticket"],c:1},
+ {t:"Why did Sophie go home early on Saturday?",o:["She was angry","She had a cold and felt tired","She had to work","She didn't like the dinner"],c:1},
+ {t:"What happened to Martin on Wednesday?",o:["He got sick","He had an important interview and got the job","He lost his job","He bought a ring"],c:1},
+ {t:"Where did Martin and Sophie have dinner on Friday?",o:["At Sophie's house","At Martin's office","At their favorite restaurant","At a hotel"],c:2},
+ {t:"Who did they meet at the restaurant before they sat down?",o:["Sophie's parents","Some friends","Martin's boss","No one"],c:1},
+ {t:"What did Sophie find in Martin's jacket pocket?",o:["Her phone","A birthday present","The ring box","A ticket"],c:2},
+ {t:"What did Martin do after Sophie opened the box?",o:["He ran away","He dropped to one knee and proposed","He called her parents","He left the restaurant"],c:1}
+];
+
+const PART6 = [
+ {t:"Why didn't Martin propose at the restaurant on Friday?",o:["Because he lost the ring","Because their friends were there","Because Sophie was sick","Because the restaurant was closed"],c:1},
+ {t:'Why does the title "She Said Yes!!!" fit this story?',o:["Because Sophie said yes to the marriage proposal","Because Sophie said yes to dinner","Because Sophie said yes to a new job","Because Sophie agreed to buy a ring"],c:0},
+ {t:"What can you infer about Sophie's feelings when she found the ring in Martin's jacket?",o:["She felt bored","She felt confused and thought it was a birthday present","She felt angry","She felt hungry"],c:1},
+ {t:'Why does Martin say "What a crazy week!" at the beginning of the blog?',o:["Because he had many unexpected and stressful events in a few days","Because he went on vacation","Because he lost his job","Because nothing happened that week"],c:0},
+ {t:"What can you infer about Martin's personality from the way he solved the problem at the end?",o:["He is careless and gives up easily","He is quick-thinking and romantic","He is angry and impatient","He doesn't care about Sophie"],c:1}
+];
+
+const PART7 = [
+ {t:"Right now, Anita _______ a break at work.",o:["take","takes","is taking","took"],c:2},
+ {t:"_______ you speak any other languages besides English?",o:["Do","Does","Are","Is"],c:0},
+ {t:"I don't have _______ money with me today, so I can't buy the shoes.",o:["many","much","a few","some"],c:1},
+ {t:"Would you like _______ coffee?",o:["some","any","many","a"],c:0},
+ {t:"My grandmother _______ to the gym yesterday because it was raining.",o:["doesn't go","didn't go","isn't going","don't go"],c:1},
+ {t:"_______ your parents strict when you were a child?",o:["Did","Was","Were","Are"],c:2},
+ {t:"He has to wear a uniform, but he _______ have to wear a tie.",o:["doesn't","didn't","isn't","don't"],c:0},
+ {t:"That sweater is really nice. How much _______ it?",o:["are","is","does","do"],c:1},
+ {t:"How _______ vegetables do you eat a day?",o:["much","many","a lot of","any"],c:1},
+ {t:"I'm really tired today because I _______ late last night.",o:["woke up","stayed up","got up","went up"],c:1}
+];
+
+/* ---------- STATE ---------- */
+let answers = {}; // id -> selected index
+let submitted = false;
+let timeLeft = 60*60;
+let timerInterval = null;
+
+/* ---------- RENDERING ---------- */
+function letters(i){ return String.fromCharCode(65+i); }
+
+function renderMC(containerId, list, idPrefix){
+  const el = document.getElementById(containerId);
+  let html = "";
+  list.forEach((q, idx)=>{
+    const qid = idPrefix+"_"+idx;
+    html += '<div class="q" data-qid="'+qid+'">';
+    html += '<div class="q-text">'+(idx+1)+'. '+q.t+'</div>';
+    q.o.forEach((opt, oi)=>{
+      html += '<label class="opt" data-qid="'+qid+'" data-oi="'+oi+'">';
+      html += '<input type="radio" name="'+qid+'" value="'+oi+'" onchange="selectAnswer(\''+qid+'\','+oi+')">';
+      html += '<span>'+letters(oi)+') '+opt+'</span></label>';
+    });
+    html += '</div>';
+  });
+  el.innerHTML = html;
+}
+
+function renderCloze(){
+  const el = document.getElementById("clozeText");
+  let html = CLOZE_PARTS[0];
+  PART4.forEach((q, idx)=>{
+    const qid = "p4_"+idx;
+    html += '<select id="'+qid+'" onchange="selectAnswer(\''+qid+'\', this.selectedIndex-1)"><option value="">&mdash;choose&mdash;</option>';
+    q.o.forEach((opt,oi)=>{ html += '<option value="'+oi+'">'+opt+'</option>'; });
+    html += '</select>';
+    html += CLOZE_PARTS[idx+1];
+  });
+  el.innerHTML = html;
+}
+
+function selectAnswer(qid, oi){
+  if(submitted) return;
+  answers[qid] = oi;
+  // visual selection highlight for MC options
+  document.querySelectorAll('.opt[data-qid="'+qid+'"]').forEach(o=>{
+    o.style.borderColor = (parseInt(o.dataset.oi)===oi) ? 'var(--violet)' : 'rgba(36,31,61,0.1)';
+  });
+}
+
+/* ---------- FLOW CONTROL ---------- */
+function startExam(){
+  const nameInput = document.getElementById("studentName");
+  const name = nameInput.value.trim();
+  if(!name){
+    document.getElementById("nameError").classList.remove("hidden");
+    return;
+  }
+  document.getElementById("nameError").classList.add("hidden");
+  window.studentName = name;
+
+  renderMC("part1", PART1, "p1");
+  renderMC("part2", PART2, "p2");
+  renderMC("part3", PART3, "p3");
+  renderCloze();
+  renderMC("part5", PART5, "p5");
+  renderMC("part6", PART6, "p6");
+  renderMC("part7", PART7, "p7");
+
+  document.getElementById("startScreen").classList.add("hidden");
+  document.getElementById("examScreen").classList.remove("hidden");
+
+  startTimer();
+}
+
+function startTimer(){
+  const box = document.getElementById("timerBox");
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    const m = Math.floor(timeLeft/60);
+    const s = timeLeft%60;
+    box.innerHTML = "&#9201; "+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    if(timeLeft <= 300) box.classList.add("warn");
+    if(timeLeft <= 0){
+      clearInterval(timerInterval);
+      submitExam();
+    }
+  }, 1000);
+}
+
+function markOptions(containerId, list, idPrefix){
+  list.forEach((q, idx)=>{
+    const qid = idPrefix+"_"+idx;
+    const chosen = answers[qid];
+    document.querySelectorAll('.opt[data-qid="'+qid+'"]').forEach(o=>{
+      const oi = parseInt(o.dataset.oi);
+      if(oi === q.c) o.classList.add("correct");
+      else if(oi === chosen) o.classList.add("incorrect");
+      o.querySelector("input").disabled = true;
+    });
+  });
+}
+
+function markCloze(){
+  PART4.forEach((q, idx)=>{
+    const qid = "p4_"+idx;
+    const sel = document.getElementById(qid);
+    sel.disabled = true;
+    const chosen = answers[qid];
+    if(chosen === q.c) sel.classList.add("correct");
+    else sel.classList.add("incorrect");
+  });
+}
+
+function submitExam(){
+  if(submitted) return;
+  submitted = true;
+  if(timerInterval) clearInterval(timerInterval);
+
+  let correctCount = 0;
+  const allParts = [
+    [PART1,"p1"], [PART2,"p2"], [PART3,"p3"],
+    [PART5,"p5"], [PART6,"p6"], [PART7,"p7"]
+  ];
+  allParts.forEach(([list, prefix])=>{
+    list.forEach((q, idx)=>{
+      const qid = prefix+"_"+idx;
+      if(answers[qid] === q.c) correctCount++;
+    });
+    markOptions(prefix==="p1"?"part1":prefix==="p2"?"part2":prefix==="p3"?"part3":prefix==="p5"?"part5":prefix==="p6"?"part6":"part7", list, prefix);
+  });
+  PART4.forEach((q, idx)=>{
+    const qid = "p4_"+idx;
+    if(answers[qid] === q.c) correctCount++;
+  });
+  markCloze();
+
+  const grade = GRADE_TABLE[correctCount];
+  document.getElementById("resultName").textContent = "Well done, " + window.studentName + "!";
+  document.getElementById("scoreOut").textContent = correctCount + " / 45";
+  document.getElementById("gradeOut").textContent = grade.toFixed(1);
+  document.getElementById("resultScreen").classList.remove("hidden");
+  document.getElementById("resultScreen").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
