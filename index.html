@@ -133,7 +133,7 @@
     <div class="card">
       <span class="part-tag">Part 4</span>
       <h2>Grammatical competence</h2>
-      <div class="instr">Complete the text. Choose the correct option (A, B, or C) for each blank, 1 to 8.</div>
+      <div class="instr">Complete the text. Choose the correct option (A, B, or C) for each blank, 16 to 23.</div>
       <div class="cloze-text" id="cloze4"></div>
     </div>
 
@@ -172,7 +172,7 @@
     <div class="card">
       <span class="part-tag">Part 7</span>
       <h2>Grammatical and lexical competence</h2>
-      <div class="instr">Complete the text. Choose the correct option (A, B, C, or D) for each blank, 1 to 10.</div>
+      <div class="instr">Complete the text. Choose the correct option (A, B, C, or D) for each blank, 36 to 45.</div>
       <div class="cloze-text" id="cloze7"></div>
     </div>
 
@@ -291,13 +291,13 @@ function renderPart1(){
   });
   document.getElementById("part1").innerHTML=h;
 }
-function renderMC(containerId,list,prefix,intro){
+function renderMC(containerId,list,prefix,off,intro){
   let h="";
   list.forEach((q,i)=>{
     const id=prefix+"_"+i;
     h+=`<div class="q">`;
-    if(intro) h+=intro(q,i);
-    if(q.t) h+=`<div class="q-text">${i+1}. ${q.t}</div>`;
+    if(intro) h+=intro(q,i+off+1);
+    if(q.t) h+=`<div class="q-text">${i+off+1}. ${q.t}</div>`;
     q.o.forEach((o,k)=>{
       h+=`<label class="opt" data-qid="${id}" data-oi="${k}"><input type="radio" name="${id}" onchange="sel('${id}',${k})"><span>${L(k)}) ${o}</span></label>`;
     });
@@ -305,12 +305,12 @@ function renderMC(containerId,list,prefix,intro){
   });
   document.getElementById(containerId).innerHTML=h;
 }
-function renderCloze(elId,textParts,list,prefix){
+function renderCloze(elId,textParts,list,prefix,off){
   let h="";
   textParts.forEach(p=>{
     if(/^\d+$/.test(p)){
       const i=parseInt(p)-1, id=prefix+"_"+i;
-      h+=`<span class="blank-n">(${p})</span><select id="${id}" onchange="sel('${id}',this.selectedIndex-1)"><option>&mdash;</option>${list[i].o.map((o,k)=>`<option>${L(k)}) ${o}</option>`).join("")}</select>`;
+      h+=`<span class="blank-n">(${i+off+1})</span><select id="${id}" onchange="sel('${id}',this.selectedIndex-1)"><option>&mdash;</option>${list[i].o.map((o,k)=>`<option>${L(k)}) ${o}</option>`).join("")}</select>`;
     } else h+=p;
   });
   document.getElementById(elId).innerHTML=h;
@@ -324,12 +324,12 @@ function startExam(){
   document.getElementById("nameError").classList.add("hidden");
   window.studentName=name;
   renderPart1();
-  renderMC("part2",P2,"p2",(q,i)=>`<p class="q-text">${i+1}. Where can you see this sign?</p><div class="sign">${q.sign}</div>`);
-  renderMC("part3",P3,"p3",(q,i)=>`<div class="dialog"><div><strong>${i+1}. A:</strong> ${q.a}</div><div><strong>B:</strong> ...</div></div>`);
-  renderCloze("cloze4",P4_TEXT,P4,"p4");
-  renderMC("part5",P5,"p5");
-  renderMC("part6",P6,"p6");
-  renderCloze("cloze7",P7_TEXT,P7,"p7");
+  renderMC("part2",P2,"p2",5,(q,n)=>`<p class="q-text">${n}. Where can you see this sign?</p><div class="sign">${q.sign}</div>`);
+  renderMC("part3",P3,"p3",10,(q,n)=>`<div class="dialog"><div><strong>${n}. A:</strong> ${q.a}</div><div><strong>B:</strong> ...</div></div>`);
+  renderCloze("cloze4",P4_TEXT,P4,"p4",15);
+  renderMC("part5",P5,"p5",23);
+  renderMC("part6",P6,"p6",30);
+  renderCloze("cloze7",P7_TEXT,P7,"p7",35);
   document.getElementById("startScreen").classList.add("hidden");
   document.getElementById("examScreen").classList.remove("hidden");
   window.scrollTo(0,0);
