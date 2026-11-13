@@ -8,15 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --peach:#FFF6EE;
-    --pink:#FF5D8F;
     --pink-deep:#D63C6C;
     --violet:#7C5CFC;
     --violet-deep:#5637C9;
-    --mint:#2FC9A0;
     --mint-deep:#1B9877;
     --yellow:#FFC93C;
-    --yellow-deep:#C98E0A;
     --ink:#241F3D;
     --paper:#FFFBF4;
     --ok:#1B9877;
@@ -25,114 +21,82 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{width:100%;min-height:100%;}
   body{
-    font-family:'Poppins',sans-serif;
-    color:var(--ink);
-    min-height:100vh;
-    background:linear-gradient(180deg,
-      #5A3FD6 0%,
-      #9B5FE0 12%,
-      #FF5D8F 26%,
-      #FF9472 40%,
-      #FFC93C 54%,
-      #6FD9B0 68%,
-      #4FB8D9 82%,
-      #5A3FD6 100%);
-    background-attachment:fixed;
-    padding:3rem 1.2rem 5rem;
+    font-family:'Poppins',sans-serif;color:var(--ink);min-height:100vh;
+    background:linear-gradient(180deg,#5A3FD6 0%,#9B5FE0 12%,#FF5D8F 26%,#FF9472 40%,#FFC93C 54%,#6FD9B0 68%,#4FB8D9 82%,#5A3FD6 100%);
+    background-attachment:fixed;padding:3rem 1.2rem 5rem;
   }
   .wrap{max-width:760px;margin:0 auto;}
   .card{
-    background:var(--paper);
-    border:1px solid rgba(36,31,61,0.08);
-    border-radius:24px;
-    padding:2.4rem 2.2rem;
-    margin-bottom:1.6rem;
-    box-shadow:0 14px 34px rgba(36,31,61,0.18);
+    background:var(--paper);border:1px solid rgba(36,31,61,0.08);border-radius:24px;
+    padding:2.4rem 2.2rem;margin-bottom:1.6rem;box-shadow:0 14px 34px rgba(36,31,61,0.18);
   }
-  .eyebrow{
-    display:inline-block;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:0.8rem;
-    background:var(--ink);color:#fff;padding:0.3rem 0.95rem;border-radius:30px;margin-bottom:1rem;
-  }
+  .eyebrow{display:inline-block;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:0.8rem;background:var(--ink);color:#fff;padding:0.3rem 0.95rem;border-radius:30px;margin-bottom:1rem;}
   h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:2.2rem;line-height:1.1;color:var(--violet-deep);margin-bottom:0.8rem;}
-  h2{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.5rem;color:var(--pink-deep);margin-bottom:0.9rem;}
-  h3{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:1.1rem;color:var(--ink);margin-bottom:0.6rem;}
+  h2{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.5rem;color:var(--pink-deep);margin-bottom:0.5rem;}
   p{font-size:1rem;line-height:1.65;margin-bottom:0.8rem;}
   .muted{color:#6b6880;font-size:0.9rem;}
   label.field-label{display:block;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:0.95rem;margin-bottom:0.4rem;}
-  input[type=text]{
-    width:100%;padding:0.75rem 1rem;border-radius:12px;border:2px solid rgba(36,31,61,0.15);
-    font-family:'Poppins',sans-serif;font-size:1rem;margin-bottom:1.2rem;
-  }
+  input[type=text]{width:100%;padding:0.75rem 1rem;border-radius:12px;border:2px solid rgba(36,31,61,0.15);font-family:'Poppins',sans-serif;font-size:1rem;margin-bottom:1.2rem;}
   input[type=text]:focus{outline:none;border-color:var(--violet);}
-  button{
-    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;
-    background:var(--violet-deep);color:#fff;border:none;border-radius:14px;
-    padding:0.85rem 1.8rem;cursor:pointer;box-shadow:0 6px 0 var(--ink);
-    transition:transform 0.05s ease;
-  }
+  button{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;background:var(--violet-deep);color:#fff;border:none;border-radius:14px;padding:0.85rem 1.8rem;cursor:pointer;box-shadow:0 6px 0 var(--ink);}
   button:active{transform:translateY(4px);box-shadow:0 2px 0 var(--ink);}
   button.secondary{background:var(--mint-deep);box-shadow:0 6px 0 #0d5c48;}
-  .timer{
-    position:sticky;top:0.8rem;z-index:50;
-    display:inline-flex;align-items:center;gap:0.5rem;
-    background:var(--ink);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:700;
-    padding:0.5rem 1.1rem;border-radius:30px;margin-bottom:1rem;float:right;
-  }
+  .timer{position:sticky;top:0.8rem;z-index:50;display:inline-flex;align-items:center;gap:0.5rem;background:var(--ink);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:700;padding:0.5rem 1.1rem;border-radius:30px;margin-bottom:1rem;float:right;}
   .timer.warn{background:var(--bad);}
-  .part-tag{
-    font-family:'Baloo 2',sans-serif;font-weight:700;color:#fff;background:var(--pink-deep);
-    display:inline-block;padding:0.25rem 0.8rem;border-radius:20px;font-size:0.8rem;margin-bottom:0.6rem;
-  }
-  .q{
-    border-top:1px solid rgba(36,31,61,0.1);
-    padding:1.3rem 0;
-  }
+  .part-tag{font-family:'Baloo 2',sans-serif;font-weight:700;color:#fff;background:var(--pink-deep);display:inline-block;padding:0.25rem 0.8rem;border-radius:20px;font-size:0.8rem;margin-bottom:0.6rem;}
+  .instr{background:#F3EEFF;border-radius:12px;padding:0.7rem 1rem;font-size:0.9rem;margin:0.6rem 0 1.1rem;}
+  .q{border-top:1px solid rgba(36,31,61,0.1);padding:1.2rem 0;}
   .q:first-of-type{border-top:none;}
   .q-text{font-weight:600;margin-bottom:0.7rem;}
-  .opt{
-    display:flex;align-items:flex-start;gap:0.6rem;
-    background:#fff;border:2px solid rgba(36,31,61,0.1);border-radius:12px;
-    padding:0.6rem 0.9rem;margin-bottom:0.55rem;cursor:pointer;font-size:0.95rem;
-  }
+  .opt{display:flex;align-items:flex-start;gap:0.6rem;background:#fff;border:2px solid rgba(36,31,61,0.1);border-radius:12px;padding:0.55rem 0.9rem;margin-bottom:0.5rem;cursor:pointer;font-size:0.95rem;}
   .opt:hover{border-color:var(--violet);}
-  .opt input{margin-top:0.2rem;}
+  .opt input{margin-top:0.25rem;}
   .opt.correct{border-color:var(--ok);background:#EAF8F2;}
   .opt.incorrect{border-color:var(--bad);background:#FCEFF3;}
-  .cloze-text{font-size:1.02rem;line-height:2.4;}
-  .cloze-text select{
-    font-family:'Poppins',sans-serif;font-weight:600;font-size:0.95rem;
-    border:2px solid var(--violet);border-radius:8px;padding:0.2rem 0.5rem;
-    background:#fff;color:var(--violet-deep);margin:0 0.1rem;
-  }
-  .cloze-text select.correct{border-color:var(--ok);color:var(--ok);}
-  .cloze-text select.incorrect{border-color:var(--bad);color:var(--bad);}
-  .result-box{
-    text-align:center;padding:2rem 1rem;border-radius:18px;background:var(--violet-deep);color:#fff;
-  }
+  .text-box{background:#fff;border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;font-size:0.95rem;line-height:1.65;border:1px solid rgba(36,31,61,0.1);}
+  .cloze-text{font-size:1.02rem;line-height:2.5;background:#fff;border-radius:14px;padding:1.1rem 1.3rem;border:1px solid rgba(36,31,61,0.1);}
+  .blank-n{font-family:'Baloo 2',sans-serif;font-weight:800;color:var(--violet-deep);font-size:0.85rem;}
+  select{font-family:'Poppins',sans-serif;font-weight:600;font-size:0.92rem;border:2px solid var(--violet);border-radius:8px;padding:0.2rem 0.4rem;background:#fff;color:var(--violet-deep);margin:0 0.15rem;max-width:100%;}
+  select.correct{border-color:var(--ok);color:var(--ok);}
+  select.incorrect{border-color:var(--bad);color:var(--bad);}
+  .fix{font-family:'Baloo 2',sans-serif;font-weight:700;color:var(--ok);font-size:0.85rem;margin-left:0.2rem;}
+  /* Part 1 */
+  .wordbank{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-bottom:1rem;}
+  .wordbank div{background:#FFF1C7;border-radius:10px;padding:0.45rem 0.6rem;font-weight:600;font-size:0.92rem;}
+  .match-row{display:flex;gap:0.8rem;align-items:center;justify-content:space-between;border-top:1px solid rgba(36,31,61,0.1);padding:0.9rem 0;}
+  .match-row .desc{flex:1;font-size:0.95rem;}
+  .match-row.example{background:#EAF8F2;border-radius:10px;padding:0.9rem 0.8rem;border-top:none;margin-bottom:0.3rem;}
+  .ex-ans{font-family:'Baloo 2',sans-serif;font-weight:800;color:var(--ok);}
+  /* Part 2 */
+  .sign{background:var(--ink);color:#FFF6D6;border:4px double #FFC93C;border-radius:10px;padding:1rem 1.2rem;text-align:center;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.15rem;line-height:1.35;margin-bottom:0.9rem;}
+  /* Part 3 */
+  .dialog{background:#fff;border-radius:12px;padding:0.8rem 1rem;margin-bottom:0.8rem;border:1px solid rgba(36,31,61,0.1);font-size:0.95rem;}
+  .dialog div{margin-bottom:0.25rem;}
+  .result-box{text-align:center;padding:2rem 1rem;border-radius:18px;background:var(--violet-deep);color:#fff;}
   .result-box .score{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:3rem;}
   .result-box .grade{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:2.2rem;color:var(--yellow);}
   .hidden{display:none !important;}
   .error-msg{color:var(--bad);font-size:0.9rem;margin:-0.6rem 0 1rem;font-weight:600;}
-  ul.plain{margin-left:1.2rem;margin-bottom:0.8rem;}
+  ul.plain{margin-left:1.2rem;margin-bottom:1rem;}
   ul.plain li{margin-bottom:0.3rem;}
+  @media(max-width:560px){.card{padding:1.8rem 1.2rem;}.wordbank{grid-template-columns:repeat(2,1fr);}.match-row{flex-direction:column;align-items:flex-start;}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- START SCREEN -->
   <div class="card" id="startScreen">
     <span class="eyebrow">Saber Pro · English Exam</span>
     <h1>English Exam &mdash; Units 7&ndash;12</h1>
-    <p>This exam has <strong>7 parts</strong> and <strong>45 questions</strong>. You have <strong>1 hour</strong> to finish. When you submit, you'll see your score and your grade right away.</p>
+    <p>This exam has <strong>7 parts</strong> and <strong>45 questions</strong>. You have <strong>1 hour</strong>. When you submit, you will see your score and your grade right away.</p>
     <ul class="plain muted">
-      <li>Part 1 &ndash; Lexical competence (5)</li>
-      <li>Part 2 &ndash; Pragmatic competence (5)</li>
-      <li>Part 3 &ndash; Communicative competence (5)</li>
-      <li>Part 4 &ndash; Grammatical competence &mdash; cloze text (8)</li>
-      <li>Part 5 &ndash; Reading comprehension: literal (7)</li>
-      <li>Part 6 &ndash; Reading comprehension: inferential (5)</li>
-      <li>Part 7 &ndash; Grammatical and lexical competence (10)</li>
+      <li>Part 1 &ndash; Lexical competence: match 5 descriptions with 8 words (5)</li>
+      <li>Part 2 &ndash; Pragmatic competence: 5 signs, options A, B, C (5)</li>
+      <li>Part 3 &ndash; Communicative competence: 5 short conversations, options A, B, C (5)</li>
+      <li>Part 4 &ndash; Grammatical competence: text with 8 blanks, options A, B, C (8)</li>
+      <li>Part 5 &ndash; Literal reading: text with 7 questions, options A, B, C (7)</li>
+      <li>Part 6 &ndash; Inferential reading: text with 5 questions, options A, B, C, D (5)</li>
+      <li>Part 7 &ndash; Grammatical and lexical competence: text with 10 blanks, options A, B, C, D (10)</li>
     </ul>
     <label class="field-label" for="studentName">Your full name</label>
     <input type="text" id="studentName" placeholder="Type your full name">
@@ -140,7 +104,6 @@
     <button onclick="startExam()">Start exam &rarr;</button>
   </div>
 
-  <!-- EXAM SCREEN -->
   <div id="examScreen" class="hidden">
     <div class="timer" id="timerBox">&#9201; 60:00</div>
     <div style="clear:both;"></div>
@@ -148,36 +111,37 @@
     <div class="card">
       <span class="part-tag">Part 1</span>
       <h2>Lexical competence</h2>
-      <p class="muted">Choose the word that best completes each sentence.</p>
+      <div class="instr">Read the 5 descriptions. Choose the correct word (A&ndash;H) for each one. There are <strong>3 words you do not need</strong>. The example (0) is already done.</div>
+      <div class="wordbank" id="wordbank"></div>
       <div id="part1"></div>
     </div>
 
     <div class="card">
       <span class="part-tag">Part 2</span>
       <h2>Pragmatic competence</h2>
-      <p class="muted">Choose the expression that fits the social situation.</p>
+      <div class="instr">Where can you see these signs? Choose A, B, or C.</div>
       <div id="part2"></div>
     </div>
 
     <div class="card">
       <span class="part-tag">Part 3</span>
       <h2>Communicative competence</h2>
-      <p class="muted">Choose the best way to keep the conversation going.</p>
+      <div class="instr">Read each short conversation. Choose the best answer for the second speaker: A, B, or C.</div>
       <div id="part3"></div>
     </div>
 
     <div class="card">
       <span class="part-tag">Part 4</span>
       <h2>Grammatical competence</h2>
-      <p class="muted">Complete the text. Choose the correct option for each blank.</p>
-      <p class="cloze-text" id="clozeText"></p>
+      <div class="instr">Complete the text. Choose the correct option (A, B, or C) for each blank, 1 to 8.</div>
+      <div class="cloze-text" id="cloze4"></div>
     </div>
 
     <div class="card">
       <span class="part-tag">Part 5</span>
-      <h2>Reading comprehension &mdash; literal</h2>
-      <p class="muted">Read the blog post and answer the questions with information from the text.</p>
-      <div style="background:#fff;border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1rem;font-size:0.92rem;line-height:1.6;border:1px solid rgba(36,31,61,0.1);">
+      <h2>Literal reading</h2>
+      <div class="instr">Read the text. Answer the questions with information that is written in the text. Choose A, B, or C.</div>
+      <div class="text-box">
         <strong>SHE SAID YES!!! &mdash; Martin's Blog</strong><br><br>
         What a crazy week! I forgot Sophie's birthday. I got a new job. Oh, and I almost didn't ask Sophie to marry me!<br><br>
         I bought a ring for Sophie on Saturday morning &mdash; I wanted to marry her that night. So I invited her over, cooked a special dinner, and made her favorite dessert. I felt nervous, but when she arrived, she said she had a cold and felt tired. Not the right mood for &ldquo;Marry me.&rdquo; She went straight home after dinner. She didn't even eat my chocolate cake!<br><br>
@@ -191,16 +155,25 @@
 
     <div class="card">
       <span class="part-tag">Part 6</span>
-      <h2>Reading comprehension &mdash; inferential</h2>
-      <p class="muted">Based on the same blog post, answer using what you can infer, not only what is written directly.</p>
+      <h2>Inferential reading</h2>
+      <div class="instr">Read the text. Answer the questions using what you can infer, not only what is written directly. Choose A, B, C, or D.</div>
+      <div class="text-box">
+        <strong>From:</strong> Carla &nbsp; <strong>To:</strong> Mia<br>
+        <strong>Subject:</strong> Greetings from Cancún!<br><br>
+        Hi Mia,<br><br>
+        I'm writing this email from the beach &mdash; well, from under an umbrella! It's very hot and sunny here, and I'm having a great time. Yesterday we visited some old ruins. The tour was long, and the guide spoke only Spanish, so my husband didn't understand much. Today he's resting at the hotel. Tomorrow we're going snorkeling. I hope the water isn't too cold!<br><br>
+        I miss our dog, Max. Our neighbor is taking care of him, and he sends me a photo of Max every day. Today Max was sleeping on the sofa!<br><br>
+        Anyway, I need to put on more sunscreen. Write soon!<br>
+        Carla
+      </div>
       <div id="part6"></div>
     </div>
 
     <div class="card">
       <span class="part-tag">Part 7</span>
       <h2>Grammatical and lexical competence</h2>
-      <p class="muted">Choose the correct word or form to complete each sentence.</p>
-      <div id="part7"></div>
+      <div class="instr">Complete the text. Choose the correct option (A, B, C, or D) for each blank, 1 to 10.</div>
+      <div class="cloze-text" id="cloze7"></div>
     </div>
 
     <div class="card" style="text-align:center;">
@@ -209,7 +182,6 @@
     </div>
   </div>
 
-  <!-- RESULT SCREEN -->
   <div class="card hidden" id="resultScreen">
     <span class="eyebrow">Result</span>
     <h1 id="resultName">Result</h1>
@@ -219,235 +191,191 @@
       <p style="margin:0.6rem 0 0.3rem;">Final grade</p>
       <div class="grade" id="gradeOut">1.0</div>
     </div>
-    <p class="muted" style="margin-top:1.2rem;">Scroll up to review your answers &mdash; correct options are now shown in green, and any wrong choice you made is shown in pink.</p>
+    <p class="muted" style="margin-top:1.2rem;">Scroll up to review: correct answers are green and your wrong choices are pink.</p>
   </div>
 
 </div>
 
 <script>
-/* ---------- GRADE TABLE (exact, as given by the teacher) ---------- */
-const GRADE_TABLE = [1.0,1.1,1.2,1.3,1.4,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.0,3.1,3.2,3.3,3.4,3.5,3.6,3.7,3.8,3.8,3.9,4.0,4.1,4.2,4.3,4.4,4.5,4.6,4.6,4.7,4.8,4.9,5.0];
+const GRADE_TABLE=[1.0,1.1,1.2,1.3,1.4,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.0,3.1,3.2,3.3,3.4,3.5,3.6,3.7,3.8,3.8,3.9,4.0,4.1,4.2,4.3,4.4,4.5,4.6,4.6,4.7,4.8,4.9,5.0];
 
-/* ---------- QUESTION BANK ---------- */
-const PART1 = [
- {t:"My sister doesn't eat meat, fish, or eggs. She's a _______.",o:["athlete","vegetarian","chef","server"],c:1},
- {t:"It's very cold and white outside, and I can make a snowman. It's _______.",o:["raining","snowing","humid","windy"],c:1},
- {t:"Before work, Emre has to wear a suit and a _______ around his neck.",o:["scarf","belt","tie","bracelet"],c:2},
- {t:"Gazpacho is a cold Spanish _______ made from tomatoes.",o:["snack","soup","dessert","drink"],c:1},
- {t:"My brother never shops online; he always goes to the store to _______ clothes before buying them.",o:["try","try on","wear","fit"],c:1}
+/* ---------- PART 1: matching, 8 words, 5 descriptions, example = H ---------- */
+const P1_WORDS=["bakery","receipt","umbrella","vegetarian","sweater","museum","dessert","cashier"]; // A..H
+const P1_EXAMPLE={t:"This person works in a store and takes your money when you buy things.",a:7}; // H
+const P1=[
+ {t:"You use this when it rains so you don't get wet.",c:2},          // C umbrella
+ {t:"This is a place where you buy bread and cakes.",c:0},            // A bakery
+ {t:"This person doesn't eat meat or fish.",c:3},                     // D vegetarian
+ {t:"This is a sweet food you eat after dinner.",c:6},                // G dessert
+ {t:"This is a place where you can see paintings and old things.",c:5}// F museum
 ];
 
-const PART2 = [
- {t:'A: "I just got the job I wanted!"  B: "_______!"',o:["Good luck","Congratulations","That's too bad","I'm sorry to hear that"],c:1},
- {t:'A: "I have a big exam tomorrow morning."  B: "_______!"',o:["Congratulations","Good luck","That's terrible","You did?"],c:1},
- {t:'A: "I failed my driving test yesterday."  B: "Oh, _______."',o:["that's great","congratulations","I'm sorry to hear that","good for you"],c:2},
- {t:'A: "I had a really bad week. I was sick, and I lost my phone."  B: "_______"',o:["That's great!","Oh no, that's too bad.","Good luck!","Congratulations!"],c:1},
- {t:'A: "So, I stayed home and cleaned the house all weekend."  B: "Oh, really? _______, what did you do?"',o:["Anyway","Actually","However","Also"],c:0}
+/* ---------- PART 2: signs, A/B/C ---------- */
+const P2=[
+ {sign:"PLEASE TURN OFF YOUR CELL PHONE.<br>THE MOVIE STARTS AT 8:00.",o:["In a movie theater","In a supermarket","At a gym"],c:0},
+ {sign:"BIG SALE!<br>All sweaters 30% off. Today only.",o:["At a bank","At a clothing store","At a hospital"],c:1},
+ {sign:"PLEASE WAIT HERE<br>TO BE SEATED.",o:["In a library","At a bus stop","In a restaurant"],c:2},
+ {sign:"QUIET, PLEASE.<br>NO FOOD OR DRINKS.",o:["In a restaurant","In a library","At a beach"],c:1},
+ {sign:"BUSES TO DOWNTOWN<br>every 15 minutes.",o:["At a bakery","In a classroom","At a bus stop"],c:2}
 ];
 
-const PART3 = [
- {t:'A: "I\'m learning to cook Italian food these days."  B: "Really? _______"',o:["So what are you making?","That's too bad.","Good luck.","I'm sorry to hear that."],c:0},
- {t:'A: "Um, let\'s see... it\'s $55.95." Which expression shows the speaker needs time to think?',o:["Let's see","Congratulations","Of course","Never mind"],c:0},
- {t:'A: "Did you have a nice weekend?"  B: "Yes, I went hiking. _______?"',o:["How about you","Who cares","So what","Why not"],c:0},
- {t:'What does "Uh-huh" usually mean in a conversation?',o:["No","Maybe","Yes / I'm listening","I don't know"],c:2},
- {t:'A: "Can I have coffee ice cream with chocolate sprinkles?"  B: "What are sprinkles?" This question is an example of:',o:["asking for clarification about a new word","giving advice","complaining","apologizing"],c:0}
+/* ---------- PART 3: conversations, A/B/C ---------- */
+const P3=[
+ {a:"Would you like some more rice?",o:["No, thanks. I'm full.","Yes, I'm hungry before.","It's very cheap."],c:0},
+ {a:"Excuse me, how much are these jeans?",o:["They're size medium.","They're $39.99.","They're my favorite."],c:1},
+ {a:"Did you have a good weekend?",o:["Yes, I go to the beach.","No, I'm studying.","Yes, I went to the beach with my family."],c:2},
+ {a:"How was your trip to Cartagena?",o:["It was great! The weather was perfect.","It's in Colombia.","I'll go next week."],c:0},
+ {a:"How often do you exercise?",o:["At the gym.","Twice a week.","For one hour yesterday."],c:1}
 ];
 
-/* Part 4 cloze: 8 blanks inside one paragraph */
-const CLOZE_PARTS = [
- "Last weekend, Laura ",
- " to the beach with her friends. The weather ",
- " perfect &mdash; it was sunny and warm. In the morning, they ",
- " in the ocean and took a lot of photos. At noon, they ",
- " lunch at a small restaurant near the beach. Laura doesn't eat much meat, so she ",
- " a seafood salad. In the afternoon, two of her friends ",
- " volleyball on the sand while Laura read her book. &ldquo;This is amazing,&rdquo; she said. &ldquo;I ",
- " believe we are finally on vacation!&rdquo; They didn't want to go home, but they ",
- " to leave before it got dark."
-];
-const PART4 = [
- {o:["go","went","goes","going"],c:1},
- {o:["is","was","were","be"],c:1},
- {o:["swim","swam","swimmed","swimming"],c:1},
- {o:["have","had","haves","having"],c:1},
- {o:["order","orders","ordered","ordering"],c:2},
- {o:["play","played","plays","are playing"],c:1},
- {o:["don't","can't","won't","shouldn't"],c:1},
- {o:["have","has","had","must"],c:2}
+/* ---------- PART 4: cloze, 8 blanks, A/B/C ---------- */
+const P4_TEXT=["Last weekend, Laura ","1"," to the beach with her friends. The weather ","2"," perfect &mdash; it was sunny and warm. In the morning, they ","3"," in the ocean and took many photos. At noon, they ","4"," lunch at a small restaurant. Laura doesn't eat meat, so she ","5"," a salad. In the afternoon, two of her friends ","6"," volleyball on the sand. &ldquo;I ","7"," believe we are on vacation!&rdquo; she said. They didn't want to go home, but they ","8"," to leave before dark."];
+const P4=[
+ {o:["goes","went","going"],c:1},
+ {o:["was","were","is"],c:0},
+ {o:["swim","swimming","swam"],c:2},
+ {o:["had","have","has"],c:0},
+ {o:["order","ordered","orders"],c:1},
+ {o:["plays","play","played"],c:2},
+ {o:["don't","can't","isn't"],c:1},
+ {o:["must","can","had"],c:2}
 ];
 
-const PART5 = [
- {t:"What did Martin buy on Saturday morning?",o:["A new phone","A ring","A birthday cake","A plane ticket"],c:1},
- {t:"Why did Sophie go home early on Saturday?",o:["She was angry","She had a cold and felt tired","She had to work","She didn't like the dinner"],c:1},
- {t:"What happened to Martin on Wednesday?",o:["He got sick","He had an important interview and got the job","He lost his job","He bought a ring"],c:1},
- {t:"Where did Martin and Sophie have dinner on Friday?",o:["At Sophie's house","At Martin's office","At their favorite restaurant","At a hotel"],c:2},
- {t:"Who did they meet at the restaurant before they sat down?",o:["Sophie's parents","Some friends","Martin's boss","No one"],c:1},
- {t:"What did Sophie find in Martin's jacket pocket?",o:["Her phone","A birthday present","The ring box","A ticket"],c:2},
- {t:"What did Martin do after Sophie opened the box?",o:["He ran away","He dropped to one knee and proposed","He called her parents","He left the restaurant"],c:1}
+/* ---------- PART 5: literal reading, A/B/C ---------- */
+const P5=[
+ {t:"What did Martin buy on Saturday morning?",o:["A new phone","A birthday cake","A ring"],c:2},
+ {t:"Why did Sophie go home early on Saturday?",o:["She had a cold and felt tired.","She was angry.","She had to work."],c:0},
+ {t:"What happened to Martin on Wednesday?",o:["He got sick.","He lost his job.","He had an interview and got the job."],c:2},
+ {t:"Where did they have dinner on Friday?",o:["At Sophie's house","At their favorite restaurant","At Martin's office"],c:1},
+ {t:"Who did they meet at the restaurant before they sat down?",o:["Some friends","Sophie's parents","Martin's boss"],c:0},
+ {t:"What did Sophie find in the jacket pocket?",o:["Her phone","A ticket","The ring box"],c:2},
+ {t:"What did Martin do after Sophie opened the box?",o:["He called her parents.","He dropped to one knee.","He ran away."],c:1}
 ];
 
-const PART6 = [
- {t:"Why didn't Martin propose at the restaurant on Friday?",o:["Because he lost the ring","Because their friends were there","Because Sophie was sick","Because the restaurant was closed"],c:1},
- {t:'Why does the title "She Said Yes!!!" fit this story?',o:["Because Sophie said yes to the marriage proposal","Because Sophie said yes to dinner","Because Sophie said yes to a new job","Because Sophie agreed to buy a ring"],c:0},
- {t:"What can you infer about Sophie's feelings when she found the ring in Martin's jacket?",o:["She felt bored","She felt confused and thought it was a birthday present","She felt angry","She felt hungry"],c:1},
- {t:'Why does Martin say "What a crazy week!" at the beginning of the blog?',o:["Because he had many unexpected and stressful events in a few days","Because he went on vacation","Because he lost his job","Because nothing happened that week"],c:0},
- {t:"What can you infer about Martin's personality from the way he solved the problem at the end?",o:["He is careless and gives up easily","He is quick-thinking and romantic","He is angry and impatient","He doesn't care about Sophie"],c:1}
+/* ---------- PART 6: inferential reading, A/B/C/D ---------- */
+const P6=[
+ {t:"Why is Carla sitting under an umbrella?",o:["It is raining.","The sun is strong.","She is cold.","She is reading."],c:1},
+ {t:"What can we infer about Carla's husband?",o:["He is a tour guide.","He lives in Cancún.","He doesn't speak Spanish well.","He loves long tours."],c:2},
+ {t:"Why does the neighbor send Carla a photo of Max every day?",o:["Max is sick.","Max is lost.","The neighbor wants a gift.","To show Carla that Max is fine."],c:3},
+ {t:"Why does Carla hope the water isn't too cold?",o:["She wants to enjoy snorkeling.","She doesn't like swimming.","She wants to stay at the hotel.","She is sick."],c:0},
+ {t:"Why did Carla write this email?",o:["To ask Mia for money","To share her vacation news with a friend","To apply for a job","To invite Mia to a party"],c:1}
 ];
 
-const PART7 = [
- {t:"Right now, Anita _______ a break at work.",o:["take","takes","is taking","took"],c:2},
- {t:"_______ you speak any other languages besides English?",o:["Do","Does","Are","Is"],c:0},
- {t:"I don't have _______ money with me today, so I can't buy the shoes.",o:["many","much","a few","some"],c:1},
- {t:"Would you like _______ coffee?",o:["some","any","many","a"],c:0},
- {t:"My grandmother _______ to the gym yesterday because it was raining.",o:["doesn't go","didn't go","isn't going","don't go"],c:1},
- {t:"_______ your parents strict when you were a child?",o:["Did","Was","Were","Are"],c:2},
- {t:"He has to wear a uniform, but he _______ have to wear a tie.",o:["doesn't","didn't","isn't","don't"],c:0},
- {t:"That sweater is really nice. How much _______ it?",o:["are","is","does","do"],c:1},
- {t:"How _______ vegetables do you eat a day?",o:["much","many","a lot of","any"],c:1},
- {t:"I'm really tired today because I _______ late last night.",o:["woke up","stayed up","got up","went up"],c:1}
+/* ---------- PART 7: cloze, 10 blanks, A/B/C/D ---------- */
+const P7_TEXT=["My name is Tom, and I ","1"," in a small apartment near the university. I usually ","2"," up at 6:30 every morning. Right now, I ","3"," breakfast, and my roommate ","4"," the dishes. I don't eat ","5"," meat, but I eat ","6"," vegetables every day. Yesterday, I ","7"," to the supermarket and ","8"," some fruit. I also wanted a new jacket, but it was too ","9",", so I didn't buy it. Tomorrow, I ","10"," visit my grandmother."];
+const P7=[
+ {o:["lives","live","to live","living"],c:1},
+ {o:["wake","wakes","waking","woke"],c:0},
+ {o:["make","made","am making","makes"],c:2},
+ {o:["is washing","wash","washed","washes"],c:0},
+ {o:["many","much","a few","some"],c:1},
+ {o:["much","a little","a lot of","any"],c:2},
+ {o:["go","goes","went","going"],c:2},
+ {o:["buy","bought","buys","buying"],c:1},
+ {o:["expensive","cheaper","expensively","price"],c:0},
+ {o:["am going to","went to","was going","go"],c:0}
 ];
 
-/* ---------- STATE ---------- */
-let answers = {}; // id -> selected index
-let submitted = false;
-let timeLeft = 60*60;
-let timerInterval = null;
+/* ---------- State ---------- */
+let answers={}, submitted=false, timeLeft=3600, timerInterval=null;
+const L=i=>String.fromCharCode(65+i);
 
-/* ---------- RENDERING ---------- */
-function letters(i){ return String.fromCharCode(65+i); }
-
-function renderMC(containerId, list, idPrefix){
-  const el = document.getElementById(containerId);
-  let html = "";
-  list.forEach((q, idx)=>{
-    const qid = idPrefix+"_"+idx;
-    html += '<div class="q" data-qid="'+qid+'">';
-    html += '<div class="q-text">'+(idx+1)+'. '+q.t+'</div>';
-    q.o.forEach((opt, oi)=>{
-      html += '<label class="opt" data-qid="'+qid+'" data-oi="'+oi+'">';
-      html += '<input type="radio" name="'+qid+'" value="'+oi+'" onchange="selectAnswer(\''+qid+'\','+oi+')">';
-      html += '<span>'+letters(oi)+') '+opt+'</span></label>';
+/* ---------- Render ---------- */
+function renderPart1(){
+  document.getElementById("wordbank").innerHTML=P1_WORDS.map((w,i)=>`<div>${L(i)}. ${w}</div>`).join("");
+  let h=`<div class="match-row example"><div class="desc"><strong>0.</strong> ${P1_EXAMPLE.t}</div><div class="ex-ans">Answer: ${L(P1_EXAMPLE.a)} &ndash; ${P1_WORDS[P1_EXAMPLE.a]}</div></div>`;
+  P1.forEach((q,i)=>{
+    const id="p1_"+i;
+    h+=`<div class="match-row"><div class="desc"><strong>${i+1}.</strong> ${q.t}</div>
+      <select id="${id}" onchange="sel('${id}',this.selectedIndex-1)"><option>&mdash;</option>${P1_WORDS.map((w,k)=>`<option>${L(k)}</option>`).join("")}</select></div>`;
+  });
+  document.getElementById("part1").innerHTML=h;
+}
+function renderMC(containerId,list,prefix,intro){
+  let h="";
+  list.forEach((q,i)=>{
+    const id=prefix+"_"+i;
+    h+=`<div class="q">`;
+    if(intro) h+=intro(q,i);
+    if(q.t) h+=`<div class="q-text">${i+1}. ${q.t}</div>`;
+    q.o.forEach((o,k)=>{
+      h+=`<label class="opt" data-qid="${id}" data-oi="${k}"><input type="radio" name="${id}" onchange="sel('${id}',${k})"><span>${L(k)}) ${o}</span></label>`;
     });
-    html += '</div>';
+    h+=`</div>`;
   });
-  el.innerHTML = html;
+  document.getElementById(containerId).innerHTML=h;
 }
-
-function renderCloze(){
-  const el = document.getElementById("clozeText");
-  let html = CLOZE_PARTS[0];
-  PART4.forEach((q, idx)=>{
-    const qid = "p4_"+idx;
-    html += '<select id="'+qid+'" onchange="selectAnswer(\''+qid+'\', this.selectedIndex-1)"><option value="">&mdash;choose&mdash;</option>';
-    q.o.forEach((opt,oi)=>{ html += '<option value="'+oi+'">'+opt+'</option>'; });
-    html += '</select>';
-    html += CLOZE_PARTS[idx+1];
+function renderCloze(elId,textParts,list,prefix){
+  let h="";
+  textParts.forEach(p=>{
+    if(/^\d+$/.test(p)){
+      const i=parseInt(p)-1, id=prefix+"_"+i;
+      h+=`<span class="blank-n">(${p})</span><select id="${id}" onchange="sel('${id}',this.selectedIndex-1)"><option>&mdash;</option>${list[i].o.map((o,k)=>`<option>${L(k)}) ${o}</option>`).join("")}</select>`;
+    } else h+=p;
   });
-  el.innerHTML = html;
+  document.getElementById(elId).innerHTML=h;
 }
+function sel(id,k){ if(!submitted){answers[id]=k; const r=document.querySelectorAll(`.opt[data-qid="${id}"]`); r.forEach(o=>o.style.borderColor=(+o.dataset.oi===k)?'var(--violet)':'rgba(36,31,61,0.1)');} }
 
-function selectAnswer(qid, oi){
-  if(submitted) return;
-  answers[qid] = oi;
-  // visual selection highlight for MC options
-  document.querySelectorAll('.opt[data-qid="'+qid+'"]').forEach(o=>{
-    o.style.borderColor = (parseInt(o.dataset.oi)===oi) ? 'var(--violet)' : 'rgba(36,31,61,0.1)';
-  });
-}
-
-/* ---------- FLOW CONTROL ---------- */
+/* ---------- Flow ---------- */
 function startExam(){
-  const nameInput = document.getElementById("studentName");
-  const name = nameInput.value.trim();
-  if(!name){
-    document.getElementById("nameError").classList.remove("hidden");
-    return;
-  }
+  const name=document.getElementById("studentName").value.trim();
+  if(!name){document.getElementById("nameError").classList.remove("hidden");return;}
   document.getElementById("nameError").classList.add("hidden");
-  window.studentName = name;
-
-  renderMC("part1", PART1, "p1");
-  renderMC("part2", PART2, "p2");
-  renderMC("part3", PART3, "p3");
-  renderCloze();
-  renderMC("part5", PART5, "p5");
-  renderMC("part6", PART6, "p6");
-  renderMC("part7", PART7, "p7");
-
+  window.studentName=name;
+  renderPart1();
+  renderMC("part2",P2,"p2",(q,i)=>`<p class="q-text">${i+1}. Where can you see this sign?</p><div class="sign">${q.sign}</div>`);
+  renderMC("part3",P3,"p3",(q,i)=>`<div class="dialog"><div><strong>${i+1}. A:</strong> ${q.a}</div><div><strong>B:</strong> ...</div></div>`);
+  renderCloze("cloze4",P4_TEXT,P4,"p4");
+  renderMC("part5",P5,"p5");
+  renderMC("part6",P6,"p6");
+  renderCloze("cloze7",P7_TEXT,P7,"p7");
   document.getElementById("startScreen").classList.add("hidden");
   document.getElementById("examScreen").classList.remove("hidden");
-
-  startTimer();
-}
-
-function startTimer(){
-  const box = document.getElementById("timerBox");
-  timerInterval = setInterval(()=>{
+  window.scrollTo(0,0);
+  const box=document.getElementById("timerBox");
+  timerInterval=setInterval(()=>{
     timeLeft--;
-    const m = Math.floor(timeLeft/60);
-    const s = timeLeft%60;
-    box.innerHTML = "&#9201; "+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-    if(timeLeft <= 300) box.classList.add("warn");
-    if(timeLeft <= 0){
-      clearInterval(timerInterval);
-      submitExam();
-    }
-  }, 1000);
+    const m=Math.floor(timeLeft/60), s=timeLeft%60;
+    box.innerHTML="&#9201; "+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    if(timeLeft<=300) box.classList.add("warn");
+    if(timeLeft<=0){clearInterval(timerInterval);submitExam();}
+  },1000);
 }
 
-function markOptions(containerId, list, idPrefix){
-  list.forEach((q, idx)=>{
-    const qid = idPrefix+"_"+idx;
-    const chosen = answers[qid];
-    document.querySelectorAll('.opt[data-qid="'+qid+'"]').forEach(o=>{
-      const oi = parseInt(o.dataset.oi);
-      if(oi === q.c) o.classList.add("correct");
-      else if(oi === chosen) o.classList.add("incorrect");
-      o.querySelector("input").disabled = true;
+function gradeSelect(id,c){
+  const el=document.getElementById(id); el.disabled=true;
+  const ok=answers[id]===c;
+  el.classList.add(ok?"correct":"incorrect");
+  if(!ok){const s=document.createElement("span");s.className="fix";s.textContent="→ "+L(c);el.insertAdjacentElement("afterend",s);}
+  return ok?1:0;
+}
+function gradeMC(prefix,list){
+  let n=0;
+  list.forEach((q,i)=>{
+    const id=prefix+"_"+i, ch=answers[id];
+    if(ch===q.c) n++;
+    document.querySelectorAll(`.opt[data-qid="${id}"]`).forEach(o=>{
+      o.style.borderColor=""; const k=+o.dataset.oi;
+      if(k===q.c) o.classList.add("correct"); else if(k===ch) o.classList.add("incorrect");
+      o.querySelector("input").disabled=true;
     });
   });
+  return n;
 }
-
-function markCloze(){
-  PART4.forEach((q, idx)=>{
-    const qid = "p4_"+idx;
-    const sel = document.getElementById(qid);
-    sel.disabled = true;
-    const chosen = answers[qid];
-    if(chosen === q.c) sel.classList.add("correct");
-    else sel.classList.add("incorrect");
-  });
-}
-
 function submitExam(){
-  if(submitted) return;
-  submitted = true;
+  if(submitted) return; submitted=true;
   if(timerInterval) clearInterval(timerInterval);
-
-  let correctCount = 0;
-  const allParts = [
-    [PART1,"p1"], [PART2,"p2"], [PART3,"p3"],
-    [PART5,"p5"], [PART6,"p6"], [PART7,"p7"]
-  ];
-  allParts.forEach(([list, prefix])=>{
-    list.forEach((q, idx)=>{
-      const qid = prefix+"_"+idx;
-      if(answers[qid] === q.c) correctCount++;
-    });
-    markOptions(prefix==="p1"?"part1":prefix==="p2"?"part2":prefix==="p3"?"part3":prefix==="p5"?"part5":prefix==="p6"?"part6":"part7", list, prefix);
-  });
-  PART4.forEach((q, idx)=>{
-    const qid = "p4_"+idx;
-    if(answers[qid] === q.c) correctCount++;
-  });
-  markCloze();
-
-  const grade = GRADE_TABLE[correctCount];
-  document.getElementById("resultName").textContent = "Well done, " + window.studentName + "!";
-  document.getElementById("scoreOut").textContent = correctCount + " / 45";
-  document.getElementById("gradeOut").textContent = grade.toFixed(1);
-  document.getElementById("resultScreen").classList.remove("hidden");
-  document.getElementById("resultScreen").scrollIntoView({behavior:"smooth"});
+  let n=0;
+  P1.forEach((q,i)=>n+=gradeSelect("p1_"+i,q.c));
+  n+=gradeMC("p2",P2); n+=gradeMC("p3",P3);
+  P4.forEach((q,i)=>n+=gradeSelect("p4_"+i,q.c));
+  n+=gradeMC("p5",P5); n+=gradeMC("p6",P6);
+  P7.forEach((q,i)=>n+=gradeSelect("p7_"+i,q.c));
+  document.getElementById("resultName").textContent="Well done, "+window.studentName+"!";
+  document.getElementById("scoreOut").textContent=n+" / 45";
+  document.getElementById("gradeOut").textContent=GRADE_TABLE[n].toFixed(1);
+  const r=document.getElementById("resultScreen"); r.classList.remove("hidden"); r.scrollIntoView({behavior:"smooth"});
 }
 </script>
 </body>
