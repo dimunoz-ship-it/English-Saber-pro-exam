@@ -192,7 +192,8 @@
       <p style="margin:0.6rem 0 0.3rem;">Final grade</p>
       <div class="grade" id="gradeOut">1.0</div>
     </div>
-    <p class="muted" style="margin-top:1.2rem;">Scroll up to review: correct answers are green and your wrong choices are pink.</p>
+    <p class="muted" id="sendNote" style="margin-top:1.2rem;font-weight:600;"></p>
+    <p class="muted">Scroll up to review: correct answers are green and your wrong choices are pink.</p>
   </div>
 
 </div>
@@ -277,6 +278,15 @@ const P7=[
  {o:["am going to","went to","was going","go"],c:0}
 ];
 
+/* ---------- Google Form (results collector) ----------
+   Fill these 5 values after creating the Google Form (see instructions).
+   While FORM_URL is empty, nothing is sent. */
+const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSeNfRlxLtG-Qh0DLHys1LO6nrPfgXFg2UwHHuLsSjts2o2jLQ/formResponse";            // https://docs.google.com/forms/d/e/XXXX/formResponse
+const ENTRY_NAME="entry.1340304441";          // entry.1111111111
+const ENTRY_SCORE="entry.1552549847";         // entry.2222222222
+const ENTRY_GRADE="entry.388072843";         // entry.3333333333
+const ENTRY_PARTS="entry.256641870";         // entry.4444444444
+
 /* ---------- State ---------- */
 let answers={}, submitted=false, timeLeft=3600, timerInterval=null;
 const L=i=>String.fromCharCode(65+i);
@@ -344,6 +354,19 @@ function startExam(){
   },1000);
 }
 
+function sendResult(n,grade,parts){
+  const note=document.getElementById("sendNote");
+  if(!FORM_URL){return;}
+  const body=new URLSearchParams();
+  body.append(ENTRY_NAME,window.studentName);
+  body.append(ENTRY_SCORE,n+"/45");
+  body.append(ENTRY_GRADE,grade);
+  body.append(ENTRY_PARTS,"P1:"+parts[0]+"/5, P2:"+parts[1]+"/5, P3:"+parts[2]+"/5, P4:"+parts[3]+"/8, P5:"+parts[4]+"/7, P6:"+parts[5]+"/5, P7:"+parts[6]+"/10");
+  fetch(FORM_URL,{method:"POST",mode:"no-cors",body:body})
+    .then(()=>{note.textContent="\u2713 Your result was sent to your teacher.";})
+    .catch(()=>{note.textContent="Your result could not be sent. Please take a screenshot and send it to your teacher.";});
+  note.textContent="Sending your result...";
+}
 function gradeSelect(id,c){
   const el=document.getElementById(id); el.disabled=true;
   const ok=answers[id]===c;
@@ -367,15 +390,19 @@ function gradeMC(prefix,list){
 function submitExam(){
   if(submitted) return; submitted=true;
   if(timerInterval) clearInterval(timerInterval);
-  let n=0;
-  P1.forEach((q,i)=>n+=gradeSelect("p1_"+i,q.c));
-  n+=gradeMC("p2",P2); n+=gradeMC("p3",P3);
-  P4.forEach((q,i)=>n+=gradeSelect("p4_"+i,q.c));
-  n+=gradeMC("p5",P5); n+=gradeMC("p6",P6);
-  P7.forEach((q,i)=>n+=gradeSelect("p7_"+i,q.c));
+  let n=0; const parts=[];
+  let c=0; P1.forEach((q,i)=>c+=gradeSelect("p1_"+i,q.c)); parts.push(c);
+  c=gradeMC("p2",P2); parts.push(c);
+  c=gradeMC("p3",P3); parts.push(c);
+  c=0; P4.forEach((q,i)=>c+=gradeSelect("p4_"+i,q.c)); parts.push(c);
+  c=gradeMC("p5",P5); parts.push(c);
+  c=gradeMC("p6",P6); parts.push(c);
+  c=0; P7.forEach((q,i)=>c+=gradeSelect("p7_"+i,q.c)); parts.push(c);
+  n=parts.reduce((a,b)=>a+b,0);
   document.getElementById("resultName").textContent="Well done, "+window.studentName+"!";
   document.getElementById("scoreOut").textContent=n+" / 45";
   document.getElementById("gradeOut").textContent=GRADE_TABLE[n].toFixed(1);
+  sendResult(n,GRADE_TABLE[n].toFixed(1),parts);
   const r=document.getElementById("resultScreen"); r.classList.remove("hidden"); r.scrollIntoView({behavior:"smooth"});
 }
 </script>
