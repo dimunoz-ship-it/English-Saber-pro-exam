@@ -111,6 +111,7 @@
     <div class="card">
       <span class="part-tag">Part 1</span>
       <h2>Lexical competence</h2>
+      <p style="font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.2rem;color:var(--violet-deep);margin:0.4rem 0 0;">Topic: Food</p>
       <div class="instr">Read the 5 descriptions. Choose the correct word (A&ndash;H) for each one. There are <strong>3 words you do not need</strong>. The example (0) is already done.</div>
       <div class="wordbank" id="wordbank"></div>
       <div id="part1"></div>
@@ -200,14 +201,14 @@
 const GRADE_TABLE=[1.0,1.1,1.2,1.3,1.4,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.0,3.1,3.2,3.3,3.4,3.5,3.6,3.7,3.8,3.8,3.9,4.0,4.1,4.2,4.3,4.4,4.5,4.6,4.6,4.7,4.8,4.9,5.0];
 
 /* ---------- PART 1: matching, 8 words, 5 descriptions, example = H ---------- */
-const P1_WORDS=["bakery","receipt","umbrella","vegetarian","sweater","museum","dessert","cashier"]; // A..H
-const P1_EXAMPLE={t:"This person works in a store and takes your money when you buy things.",a:7}; // H
+const P1_WORDS=["carrots","apples","meat","lettuce","strawberries","mangoes","onions","fries"]; // A..H  (topic: Food)
+const P1_EXAMPLE={t:"These are long, thin pieces of potato. They are cooked in hot oil.",a:7}; // H
 const P1=[
- {t:"You use this when it rains so you don't get wet.",c:2},          // C umbrella
- {t:"This is a place where you buy bread and cakes.",c:0},            // A bakery
- {t:"This person doesn't eat meat or fish.",c:3},                     // D vegetarian
- {t:"This is a sweet food you eat after dinner.",c:6},                // G dessert
- {t:"This is a place where you can see paintings and old things.",c:5}// F museum
+ {t:"This is a long, orange vegetable. Rabbits love it.",c:0},                       // A carrots
+ {t:"This is a green vegetable. People put it in salads.",c:3},                      // D lettuce
+ {t:"These are small, red, sweet fruits. They have tiny seeds on the outside.",c:4}, // E strawberries
+ {t:"This is a round vegetable. It makes you cry when you cut it.",c:6},             // G onions
+ {t:"This is a tropical fruit. It is very sweet and yellow, orange, or red.",c:5}    // F mangoes
 ];
 
 /* ---------- PART 2: signs, A/B/C ---------- */
